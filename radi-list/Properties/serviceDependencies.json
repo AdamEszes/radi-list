@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:radi_listContext"
+    },
+    "secrets1": {
+      "type": "secrets"
+    },
+    "postgresql1": {
+      "type": "postgresql",
+      "connectionId": "radi-db",
+      "dynamicId": null
+    }
+  }
+}

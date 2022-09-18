@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  radi-list:
+    image: ${DOCKER_REGISTRY-}radilist
+    build:
+      context: .
+      dockerfile: radi-list/Dockerfile
+    ports:
+        - "80:80"
+        - "443:443"
+  radi-db:
+    image: "mcr.microsoft.com/mssql/server"
+    environment:
+        SA_PASSWORD: "rfgrtegFeG43!"
+        ACCEPT_EULA: "Y"
+    ports:
+        - "14331:1433"
+    volumes:
+        - C:\MSSQL\BACKUP\KEEP:/var/opt/mssql/backups
+        - C:\MSSQL\DockerFiles\datafiles:/var/opt/sqlserver
+        - C:\MSSQL\DockerFiles\system\data:/var/opt/mssql/data
